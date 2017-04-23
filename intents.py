@@ -9,6 +9,32 @@ SCHOOLWORK_QUESTION = 'Was there any homework completed today?'
 SOCIALIZE_QUESTION = 'Did you socialize with anyone today?'
 CONFLICT_QUESTION = 'Did you get into a conflict with someone today?'
 
+
+def get_current_intent(state):
+	if state == 0:
+		curr_intent = mood_intent(response)
+	elif state == 1:
+		curr_intent = productivity_intent(response)
+	elif state == 2:
+		curr_intent = sleep_intent(response)
+	elif state == 3:
+		curr_intent = exercise_indent(response)
+	elif state == 4:
+		curr_intent = entertainment_intent(response)
+	elif state == 5:
+		curr_intent = schoolwork_intent(response)
+	elif state == 6:
+		curr_intent = socialize_intent(response)
+	elif state == 7:
+		curr_intent = conflict_intent(response)
+	else:
+		curr_intent = end_session_and_save
+
+def end_session_and_save():
+	# TO-DO save to dynamio DB
+
+	return statement("Your response have been saved!")
+
 def _int_intent(general_level, next_question, error_question, reprompt_question, lower, upper, stat):
 	try:
 		general_level = int(general_level)
