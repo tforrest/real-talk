@@ -9,7 +9,7 @@ SCHOOLWORK_QUESTION = 'Was there any homework completed today?'
 SOCIALIZE_QUESTION = 'Did you socialize with anyone today?'
 CONFLICT_QUESTION = 'Did you get into a conflict with someone today?'
 
-def _general_intent(general_level, next_question, error_question, reprompt_question, lower, upper, stat):
+def _int_intent(general_level, next_question, error_question, reprompt_question, lower, upper, stat):
 	try:
 		general_level = int(general_level)
 		if general_level < lower or general_level > upper:
@@ -30,7 +30,7 @@ def _bool_intent(boolean_level, next_question, error_question, reprompt_question
 	return lambda fn: question(next_question).reprompt(next_question)
 
 def mood_intent(mood_level):
-	return _general_intent(
+	return _int_intent(
 		mood_level,
 		PRODUCTIVITY_QUESTION,
 		"Please give a number between 1 and 5 for your mood",
@@ -41,7 +41,7 @@ def mood_intent(mood_level):
 	)
 
 def productivity_intent(productivity_level):
-	return _general_intent(
+	return _int_intent(
 		productivity_level,
 		SLEEP_QUESTION,
 		"Please give a number between 1 and 5 for your productivity",
@@ -52,7 +52,7 @@ def productivity_intent(productivity_level):
 	)
 
 def sleep_intent(sleep_level):
-    return _general_intent(
+    return _int_intent(
 		sleep_level,
 		EXERCISE_QUESTION,
 		"Please give a number between 1 and 24 for your sleep",
