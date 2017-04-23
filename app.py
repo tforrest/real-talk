@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_ask import Ask, statement, question ,convert_errors
+from flask_ask import Ask, statement, question, convert_errors
 
 app = Flask(__name__)
 ask = Ask(app, '/')
