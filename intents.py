@@ -1,4 +1,4 @@
-from flask_ask import Ask, statement, question, convert_errors, request, session
+from flask_ask import Ask, statement, question, request, session
 
 MOOD_QUESTION = 'On a scale from 1 to 5, how positive was your mood today?'
 PRODUCTIVITY_QUESTION = 'On a scale from 1 to 5, how good was your productivity today?'
@@ -18,7 +18,7 @@ def _current_intent(state):
 	elif state == 2:
 		curr_intent = sleep_intent(response)
 	elif state == 3:
-		curr_intent = exercise_indent(response)
+		curr_intent = exercise_intent(response)
 	elif state == 4:
 		curr_intent = entertainment_intent(response)
 	elif state == 5:
@@ -89,7 +89,7 @@ def sleep_intent(sleep_level):
 		'sleepHrs'
 	)
 
-def exercise_indent(exercise_level):
+def exercise_intent(exercise_level):
     return _bool_intent(
 		exercise_level,
 		ENTERTAINMENT_QUESTION,
