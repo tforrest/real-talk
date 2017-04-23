@@ -10,7 +10,7 @@ ask = Ask(app, '/')
 @ask.intent('RealTalk')
 def real_talk(response):
     state = session.attributes.get('state', 0)
-    if current_state == 0:
+    if state == 0:
         session.attributes['data'] = {
             'sessionID': session.user.userID
         }
