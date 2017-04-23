@@ -1,4 +1,8 @@
+import logging
+
 from flask_ask import Ask, statement, question, request, session
+
+from settings import table
 
 MOOD_QUESTION = 'On a scale from 1 to 5, how positive was your mood today?'
 PRODUCTIVITY_QUESTION = 'On a scale from 1 to 5, how good was your productivity today?'
@@ -32,8 +36,12 @@ def _current_intent(state):
 	return curr_intent
 
 def end_session_and_save():
-	# TO-DO save to dynamio DB
-
+	try:
+		table.put_item(
+			item=session.attributes['data']
+		)
+	except Exception as e:
+		logging.error(e)
 	return statement("Your response have been saved!")
 
 def _int_intent(general_level, next_question, error_question, reprompt_question, lower, upper, stat):
