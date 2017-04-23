@@ -29,6 +29,7 @@ def _current_intent(state):
 		curr_intent = conflict_intent(response)
 	else:
 		curr_intent = end_session_and_save
+	return curr_intent
 
 def end_session_and_save():
 	# TO-DO save to dynamio DB
