@@ -14,7 +14,6 @@ def real_talk(response):
         session.attributes['data'] = {
             'sessionID': session.user.userID
         }
-        state = 1
         session.attributes['state'] = state
     return _current_intent(state)()
 
