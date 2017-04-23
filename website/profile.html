@@ -1,34 +1,50 @@
 <html style="height : 100%" class="realtalk">
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="profile.html">My Profile</a>
-    <div class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Statistics</a>
-      <div class="dropdown-content">
-        <a href="table.html">Table</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-    </div>
-    <b href="#sign-up">Sign Up</b>
-    <b href="#sign-in">Sign In</b>
-  </div>
+  <script type="text/javascript"></script>
+  	<link rel="stylesheet" type="text/css" href="style.css">
+  	<div class="navbar">
+  		<a href="index.html">Home</a>
+  		<a href="profile.html">My Profile</a>
+  		<div class="dropdown">
+  			<a href="javascript:void(0)" class="dropbtn">Statistics</a>
+  			<div class="dropdown-content">
+  				<a href="table.html">Table</a>
+  				<a href="scatter.html">Scatter Chart</a>
+  				<a href="analysis.html">Analysis</a>
+  			</div>
+  		</div>
+  		<b href="#sign-up">Sign Up</b>
+  		<b href="#sign-in">Sign In</b>
+  	</div>
+  </head>
 </head>
 <body>
-  <div id="container">
-    <table>
-     <tr>
-      <th>ID</th>
-      <th>Name</th>
-     </tr>
-     <tr>
-      <td colspan="2">
-       <div> LOTS O' CONTENT </div>
-      </td>
-     </tr>
-    </table>
+  <div class="content">
+    <div id="profileheader">
+      <h1>Real Talk</h1>
+    </div>
+    <div id="profilecontainerleft">
+      <div class="col-sm-12">
+        <h2>Your Weekly Summary: </h2>
+        <p>
+        Average mood: Good<br />
+        Average hours of sleep per night: 15<br />
+        Average productivity rating: 4<br />
+        Days of Exercise: 6<p>
+      </div>
+    </div>
+    <div id="profilecontainerright">
+      <h2>This weeks motivational clip!</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/LrhSJ1FHeaA" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div id="profilecontainermiddle">
+      <h2>Events in your area:</h2>
+      <p>
+      <a href="#">5k Charity Run<br />
+      <a href="#">Cookie for Kittens Bake Sale<br />
+      <a href="#">Southwest Hacks<br />
+      <a href="#">Rescue dog adoption day<br />
+    </div>
   </div>
 </body>
 </html>

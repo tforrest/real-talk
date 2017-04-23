@@ -1,0 +1,2 @@
+"readingTS (S)","conflict (BOOL)","entertainment (BOOL)","exercise (BOOL)","mood (N)","productivity (N)","schoolwork (BOOL)","sessionID (S)","sleepHrs (N)","sleepWell (BOOL)","socialized (BOOL)","userID (S)","work (BOOL)"
+"1:00","false","false","false","3","3","false","1","8","false","false","001","false"

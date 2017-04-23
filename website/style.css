@@ -39,10 +39,10 @@ b:hover {
 #container{
   height: 400px;
   min-width: 310px;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-top: 50px;
-  float: left;
+  float: center;
 }
 .highcharts-tooltip h3 {
 margin: 0.3em 0;
@@ -112,4 +112,30 @@ h1{
 table{
   align= center;
   width: 100%;
+}
+#profileheader{
+  padding-top: 60px;
+  background-color: #666666;
+}
+#profilecontainerleft {
+  float: left;
+  max-width: 700px;
+  margin: 0;
+  padding: 1em;
+}
+#profilecontainerright {
+  float: right;
+  margin-left: 0px;
+  border-left: 1px solid gray;
+  padding: 1em;
+  overflow: hidden;
+}
+#profilecontainermiddle {
+  max-width: 800px;
+  margin-left: 340px;
+  border-left: 1px solid gray;
+  margin: 0;
+  padding: 1em;
+  overflow: hidden;
+  text-align: center;
 }
