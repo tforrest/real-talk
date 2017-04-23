@@ -20,15 +20,9 @@ with open(csv_filename, 'rU') as csvfile:
     fact = fullfact([2,2,2,5,5,2,12,2,2,2,7])
     data
 
-    print fact
-    dataConverted = np.array(data).astype(np.int)
-
     n = len(levels)  # number of factors
-    print n
     nb_lines = np.prod(levels)  # number of trial conditions
-    print nb_lines
     H = np.zeros((nb_lines, n))
-
 
     level_repeat = 1
     range_repeat = np.prod(levels)
@@ -41,18 +35,11 @@ with open(csv_filename, 'rU') as csvfile:
         level_repeat *= levels[i]
         H[:, i] = rng
 
-    #reg = linear_model.LinearRegression()
-    #reg.fit (H)
-    #linear_model.LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
-    #reg.coef_
-    #H([ 0.5,  0.5])
-
 clf = linear_model.LinearRegression()
 clf.fit(data,[3, 2, 3, 4 ,4, 3, 2, 2, 3, 3, 3, 3, 3, 3])
 clf.coef_
 H
 
-#plt.plot(data, m*x + c, 'r', label='Fitted line')
 plt.plot(data)
-plt.ylabel([3, 2, 3, 4 ,4, 3, 2, 2, 3, 3, 3, 3, 3, 3])
+#plt.legend()
 plt.show()
