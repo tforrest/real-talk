@@ -43,7 +43,8 @@ def end_session_and_save():
 			'dayOfWeek': 'Monday',
 			'sleepWell': True,
 			'sessionID': "12313",
-			'userID': "123123"
+			'userID': "123123",
+			'readingTS': '1:00'
 
 		})
 		table.put_item(Item=data)
