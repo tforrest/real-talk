@@ -52,7 +52,7 @@ clf.fit(data,[3, 2, 3, 4 ,4, 3, 2, 2, 3, 3, 3, 3, 3, 3])
 clf.coef_
 H
 
-plt.plot(data, [3, 2, 3, 4 ,4, 3, 2, 2, 3, 3, 3, 3, 3, 3], 'o', label='Original data', markersize=10)
-plt.plot(data, m*x + c, 'r', label='Fitted line')
-plt.legend()
+#plt.plot(data, m*x + c, 'r', label='Fitted line')
+plt.plot(data)
+plt.ylabel([3, 2, 3, 4 ,4, 3, 2, 2, 3, 3, 3, 3, 3, 3])
 plt.show()
