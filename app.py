@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_ask import Ask, session
 
-from intents import get_current_intent
+from intents import _current_intent
 
 app = Flask(__name__)
 ask = Ask(app, '/')
@@ -16,8 +16,7 @@ def real_talk(response):
         }
         state = 1
         session.attributes['state'] = state
-    intent_fn = get_current_intent(state)
-    return intent_fn()
+    return _current_intent(state)()
 
 if __name__ == '__main__':
     app.run(debug=True)

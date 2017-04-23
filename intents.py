@@ -10,7 +10,7 @@ SOCIALIZE_QUESTION = 'Did you socialize with anyone today?'
 CONFLICT_QUESTION = 'Did you get into a conflict with someone today?'
 
 
-def get_current_intent(state):
+def _current_intent(state):
 	if state == 0:
 		curr_intent = mood_intent(response)
 	elif state == 1:
