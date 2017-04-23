@@ -2,6 +2,10 @@ from pyDOE import *
 import csv
 import numpy as np
 import re
+from sklearn import linear_model
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings(action="ignore", module="scipy", message="^internal gelsd")
 
 csv_filename = 'RealTalkSessions.csv'
 data = []
@@ -37,5 +41,18 @@ with open(csv_filename, 'rU') as csvfile:
         level_repeat *= levels[i]
         H[:, i] = rng
 
-    print H
-            #print H
+    #reg = linear_model.LinearRegression()
+    #reg.fit (H)
+    #linear_model.LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
+    #reg.coef_
+    #H([ 0.5,  0.5])
+
+clf = linear_model.LinearRegression()
+clf.fit(data,[3, 2, 3, 4 ,4, 3, 2, 2, 3, 3, 3, 3, 3, 3])
+clf.coef_
+H
+
+plt.plot(data, [3, 2, 3, 4 ,4, 3, 2, 2, 3, 3, 3, 3, 3, 3], 'o', label='Original data', markersize=10)
+plt.plot(data, m*x + c, 'r', label='Fitted line')
+plt.legend()
+plt.show()
