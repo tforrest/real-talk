@@ -14,7 +14,7 @@ SOCIALIZE_QUESTION = 'Did you socialize with anyone today?'
 CONFLICT_QUESTION = 'Did you get into a conflict with someone today?'
 
 
-def _current_intent(state):
+def _current_intent(state, response):
 	if state == 0:
 		curr_intent = mood_intent(response)
 	elif state == 1:
@@ -49,20 +49,20 @@ def _int_intent(general_level, next_question, error_question, reprompt_question,
 		general_level = int(general_level)
 		if general_level < lower or general_level > upper:
 			raise ValueError("Attribute out of range")
-	except ValueError as e:
-		return lambda fn: question(error_question).reprompt(reprompt_question)
+	except Exception as e:
+		return lambda: question(error_question).reprompt(reprompt_question)
 	session.attributes['state'] += 1
 	session.attributes['data'][stat] = general_level
-	return lambda fn: question(next_question).reprompt(next_question)
+	return lambda: question(next_question).reprompt(next_question)
 
 def _bool_intent(boolean_level, next_question, error_question, reprompt_question, stat):
 	try:
 		boolean_level = bool(boolean_level)
 	except ValueError as e:
-		return lambda fn: question(error_question).reprompt(reprompt_question)
+		return lambda: question(error_question).reprompt(reprompt_question)
 	session.attributes['state'] += 1
 	session.attributes['data'][stat] = boolean_level
-	return lambda fn: question(next_question).reprompt(next_question)
+	return lambda: question(next_question).reprompt(next_question)
 
 def mood_intent(mood_level):
 	return _int_intent(
