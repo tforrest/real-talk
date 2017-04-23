@@ -13,8 +13,8 @@ SCHOOLWORK_QUESTION = 'Was there any homework completed today?'
 SOCIALIZE_QUESTION = 'Did you socialize with anyone today?'
 CONFLICT_QUESTION = 'Did you get into a conflict with someone today?'
 
-YES = ["yup", "yes", "yeah"]
-NO = ["no", "nope"]
+YES = ["yup", "yes", "yeah", "true"]
+NO = ["no", "nope", "false"]
 
 def _current_intent(state, response):
 	if state == 0:
@@ -66,7 +66,7 @@ def _bool_intent(boolean_level, next_question, error_question, reprompt_question
 	else:
 		return lambda: question(error_question).reprompt(reprompt_question)
 	session.attributes['state'] += 1
-	session.attributes['data'][stat] = str(boolean_level).lower() 
+	session.attributes['data'][stat] = boolean
 	return lambda: question(next_question).reprompt(next_question)
 
 def mood_intent(mood_level):
