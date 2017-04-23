@@ -1,7 +1,7 @@
 from flask import Flask
-from flask_ask import Ask, session, statement
+from flask_ask import Ask, session, statement, question
 
-from intents import _current_intent, _welcome_intent, logging
+from intents import _current_intent, logging, MOOD_QUESTION
 
 app = Flask(__name__)
 ask = Ask(app, '/')
@@ -22,15 +22,12 @@ def cancel():
 
 @ask.intent('RealTalk')
 def real_talk(response):
-    state = session.attributes.get('state', None)
+    state = session.attributes.get('state', 0)
     logging.debug(state)
-    if not state:
-        session.attributes['data'] = {
-            'sessionID': session.user.userID
-        }
-        state = 0
-        session.attributes['state'] = state
-        return _welcome_intent()
+    if 'data' not in session.attributes:
+        session.attributes['data'] = {}
+        session.attributes['state'] = 0
+        return question(MOOD_QUESTION)
     return _current_intent(state, response)()
 
 if __name__ == '__main__':
