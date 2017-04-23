@@ -56,12 +56,10 @@ def _int_intent(general_level, next_question, error_question, reprompt_question,
 	return lambda: question(next_question).reprompt(next_question)
 
 def _bool_intent(boolean_level, next_question, error_question, reprompt_question, stat):
-	try:
-		boolean_level = bool(boolean_level)
-	except ValueError as e:
+	if str(boolean_level).lower() not in ['yes', 'true', 'no', 'false']:
 		return lambda: question(error_question).reprompt(reprompt_question)
 	session.attributes['state'] += 1
-	session.attributes['data'][stat] = boolean_level
+	session.attributes['data'][stat] = str(boolean_level).lower() 
 	return lambda: question(next_question).reprompt(next_question)
 
 def mood_intent(mood_level):
