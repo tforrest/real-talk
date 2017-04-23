@@ -57,9 +57,6 @@ th, td {
 th {
     text-align: left;
 }
-table {
-    border-spacing: 5px;
-}
 ul {
     list-style-type: none;
     margin: 0;
@@ -112,6 +109,14 @@ h1{
 table{
   align= center;
   width: 100%;
+  border-collapse: collapse;
+  border: 2px black solid;
+  font: 12px sans-serif;
+  padding-top: 60px;
+}
+td {
+    border: 1px black solid;
+    padding: 5px;
 }
 #profileheader{
   padding-top: 60px;
