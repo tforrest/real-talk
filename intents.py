@@ -16,6 +16,11 @@ CONFLICT_QUESTION = 'Did you get into a conflict with someone today?'
 YES = ["yup", "yes", "yeah", "true"]
 NO = ["no", "nope", "false"]
 
+def _welcome_intent():
+	return question(
+		"Welcome to Real Talk! Answer these questions daily to track your mood. " + MOOD_QUESTION
+	)
+
 def _current_intent(state, response):
 	if state == 0:
 		curr_intent = mood_intent(response)

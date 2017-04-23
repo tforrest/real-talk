@@ -21,13 +21,15 @@ def cancel():
 
 @ask.intent('RealTalk')
 def real_talk(response):
-    state = session.attributes.get('state', 0)
+    state = session.attributes.get('state', None)
     logging.critical(state)
-    if state == 0:
+    if not state:
         session.attributes['data'] = {
             'sessionID': session.user.userID
         }
+        state = 0
         session.attributes['state'] = state
+        return _welcome_intent()
     return _current_intent(state, response)()
 
 if __name__ == '__main__':
