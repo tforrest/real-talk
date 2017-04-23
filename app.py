@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_ask import Ask, session, statement
 
-from intents import _current_intent, logging
+from intents import _current_intent, _welcome_intent, logging
 
 app = Flask(__name__)
 ask = Ask(app, '/')
 
+logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
 @ask.intent('AMAZON.HelpIntent')
 def help():
@@ -22,7 +23,7 @@ def cancel():
 @ask.intent('RealTalk')
 def real_talk(response):
     state = session.attributes.get('state', None)
-    logging.critical(state)
+    logging.debug(state)
     if not state:
         session.attributes['data'] = {
             'sessionID': session.user.userID
